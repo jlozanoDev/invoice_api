@@ -94,7 +94,7 @@ describe('POST /api/v1/invoices', () => {
     'vat_rate',
     'vat_amount',
   ])('should return 400 when %s is missing', async (field) => {
-    const { [field]: _, ...payload } = validPayload;
+    const { [field as keyof typeof validPayload]: _, ...payload } = validPayload;
     const res = await fetch(`${baseUrl}/api/v1/invoices`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
