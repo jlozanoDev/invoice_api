@@ -35,8 +35,11 @@ export interface InvoiceRepository {
   findAll(filters?: InvoiceFilters): Promise<PaginatedResult>;
   deleteById(id: string): Promise<boolean>;
   update(id: string, data: Partial<Invoice>): Promise<Invoice | null>;
+  getNextInvoiceNumber(): Promise<string>;
 }
 
+const PREFIX = 'BT';
+let nextNumber = 1;
 const invoices: Invoice[] = [];
 
 function matchesFilters(invoice: Invoice, filters: InvoiceFilters): boolean {
@@ -104,6 +107,12 @@ export function inMemoryInvoiceRepository(): InvoiceRepository {
       if (index === -1) return null;
       invoices[index] = { ...invoices[index], ...data };
       return invoices[index];
+    },
+
+    async getNextInvoiceNumber() {
+      const number = `${PREFIX}${String(nextNumber).padStart(4, '0')}`;
+      nextNumber++;
+      return number;
     },
   };
 }

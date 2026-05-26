@@ -1,6 +1,346 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1779806201574" clover="3.2.0">
-  <project timestamp="1779806201574" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1779814438315" clover="3.2.0">
+  <project timestamp="1779814438315" name="All files">
+    <metrics statements="274" coveredstatements="268" conditionals="218" coveredconditionals="172" methods="60" coveredmethods="60" elements="552" coveredelements="500" complexity="0" loc="274" ncloc="274" packages="8" files="14" classes="14"/>
+    <package name="src">
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="app.ts" path="/home/j-loz/proyectos/invoice_api/src/app.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.__tests__.helpers">
+      <metrics statements="31" coveredstatements="31" conditionals="16" coveredconditionals="9" methods="9" coveredmethods="9"/>
+      <file name="mysql-test-server.ts" path="/home/j-loz/proyectos/invoice_api/src/__tests__/helpers/mysql-test-server.ts">
+        <metrics statements="31" coveredstatements="31" conditionals="16" coveredconditionals="9" methods="9" coveredmethods="9"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="82" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="97" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="98" count="6" type="stmt"/>
+        <line num="99" count="6" type="stmt"/>
+        <line num="100" count="6" type="stmt"/>
+        <line num="101" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.controllers">
+      <metrics statements="44" coveredstatements="39" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="6"/>
+      <file name="invoice.controller.ts" path="/home/j-loz/proyectos/invoice_api/src/controllers/invoice.controller.ts">
+        <metrics statements="44" coveredstatements="39" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="6"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="30" type="stmt"/>
+        <line num="19" count="30" type="stmt"/>
+        <line num="21" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="16" type="stmt"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="26" count="14" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="36" count="16" type="stmt"/>
+        <line num="37" count="16" type="stmt"/>
+        <line num="38" count="16" type="stmt"/>
+        <line num="40" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="45" count="14" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="56" count="3" type="stmt"/>
+        <line num="58" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="73" count="5" type="stmt"/>
+        <line num="74" count="5" type="stmt"/>
+        <line num="76" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="77" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="78" count="3" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="92" count="9" type="stmt"/>
+        <line num="93" count="9" type="stmt"/>
+        <line num="95" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="96" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="97" count="2" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="101" count="7" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middleware">
+      <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <file name="auth.ts" path="/home/j-loz/proyectos/invoice_api/src/middleware/auth.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+      </file>
+      <file name="logger.ts" path="/home/j-loz/proyectos/invoice_api/src/middleware/logger.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="67" type="stmt"/>
+        <line num="6" count="67" type="stmt"/>
+        <line num="7" count="67" type="stmt"/>
+        <line num="8" count="67" type="stmt"/>
+        <line num="11" count="67" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.repositories">
+      <metrics statements="117" coveredstatements="116" conditionals="136" coveredconditionals="97" methods="28" coveredmethods="28"/>
+      <file name="invoice.repository.ts" path="/home/j-loz/proyectos/invoice_api/src/repositories/invoice.repository.ts">
+        <metrics statements="47" coveredstatements="46" conditionals="67" coveredconditionals="58" methods="13" coveredmethods="13"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+        <line num="46" count="52" type="cond" truecount="4" falsecount="0"/>
+        <line num="47" count="48" type="cond" truecount="4" falsecount="0"/>
+        <line num="48" count="45" type="cond" truecount="4" falsecount="0"/>
+        <line num="49" count="42" type="cond" truecount="4" falsecount="0"/>
+        <line num="50" count="39" type="cond" truecount="2" falsecount="2"/>
+        <line num="51" count="39" type="cond" truecount="4" falsecount="0"/>
+        <line num="52" count="36" type="cond" truecount="4" falsecount="0"/>
+        <line num="53" count="35" type="cond" truecount="4" falsecount="0"/>
+        <line num="54" count="33" type="cond" truecount="4" falsecount="0"/>
+        <line num="55" count="31" type="cond" truecount="4" falsecount="0"/>
+        <line num="56" count="29" type="cond" truecount="4" falsecount="0"/>
+        <line num="57" count="28" type="cond" truecount="4" falsecount="0"/>
+        <line num="58" count="27" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="64" count="9" type="stmt"/>
+        <line num="65" count="9" type="stmt"/>
+        <line num="69" count="70" type="cond" truecount="2" falsecount="0"/>
+        <line num="73" count="52" type="stmt"/>
+        <line num="75" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="76" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="77" count="13" type="stmt"/>
+        <line num="78" count="14" type="stmt"/>
+        <line num="79" count="14" type="stmt"/>
+        <line num="80" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="81" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="85" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="86" count="13" type="cond" truecount="1" falsecount="1"/>
+        <line num="87" count="13" type="stmt"/>
+        <line num="88" count="13" type="stmt"/>
+        <line num="89" count="13" type="stmt"/>
+        <line num="90" count="13" type="stmt"/>
+        <line num="92" count="13" type="stmt"/>
+        <line num="99" count="6" type="stmt"/>
+        <line num="100" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="106" count="26" type="stmt"/>
+        <line num="107" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="108" count="4" type="stmt"/>
+        <line num="109" count="4" type="stmt"/>
+        <line num="113" count="4" type="stmt"/>
+        <line num="114" count="4" type="stmt"/>
+        <line num="115" count="4" type="stmt"/>
+      </file>
+      <file name="mysql-invoice.repository.ts" path="/home/j-loz/proyectos/invoice_api/src/repositories/mysql-invoice.repository.ts">
+        <metrics statements="70" coveredstatements="70" conditionals="69" coveredconditionals="39" methods="15" coveredmethods="15"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="31" count="13" type="stmt"/>
+        <line num="35" count="8" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
+        <line num="37" count="16" type="stmt"/>
+        <line num="38" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="13" type="stmt"/>
+        <line num="42" count="8" type="stmt"/>
+        <line num="46" count="8" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="76" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="77" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="83" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="101" count="5" type="stmt"/>
+        <line num="102" count="5" type="stmt"/>
+        <line num="111" count="5" type="stmt"/>
+        <line num="120" count="5" type="stmt"/>
+        <line num="124" count="9" type="stmt"/>
+        <line num="125" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="126" count="8" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="134" count="1" type="stmt"/>
+        <line num="136" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="137" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="138" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="139" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="140" count="1" type="stmt"/>
+        <line num="142" count="1" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+        <line num="145" count="1" type="stmt"/>
+        <line num="147" count="1" type="stmt"/>
+        <line num="154" count="1" type="stmt"/>
+        <line num="155" count="1" type="stmt"/>
+        <line num="159" count="3" type="stmt"/>
+        <line num="160" count="3" type="stmt"/>
+        <line num="161" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="163" count="9" type="stmt"/>
+        <line num="164" count="9" type="stmt"/>
+        <line num="166" count="3" type="stmt"/>
+        <line num="167" count="3" type="stmt"/>
+        <line num="169" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="171" count="3" type="stmt"/>
+        <line num="175" count="3" type="stmt"/>
+        <line num="176" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="177" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.transport">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="invoices.ts" path="/home/j-loz/proyectos/invoice_api/src/transport/invoices.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.use-cases">
+      <metrics statements="41" coveredstatements="41" conditionals="34" coveredconditionals="34" methods="10" coveredmethods="10"/>
+      <file name="confirm-invoice.use-case.ts" path="/home/j-loz/proyectos/invoice_api/src/use-cases/confirm-invoice.use-case.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="9" type="stmt"/>
+        <line num="19" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="27" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="35" count="7" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+      </file>
+      <file name="create-invoice.use-case.ts" path="/home/j-loz/proyectos/invoice_api/src/use-cases/create-invoice.use-case.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="30" type="stmt"/>
+        <line num="20" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="16" type="stmt"/>
+        <line num="24" count="14" type="stmt"/>
+        <line num="26" count="14" type="stmt"/>
+        <line num="36" count="14" type="stmt"/>
+        <line num="38" count="14" type="stmt"/>
+      </file>
+      <file name="delete-invoice.use-case.ts" path="/home/j-loz/proyectos/invoice_api/src/use-cases/delete-invoice.use-case.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="17" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="25" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+      </file>
+      <file name="get-invoice.use-case.ts" path="/home/j-loz/proyectos/invoice_api/src/use-cases/get-invoice.use-case.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+      <file name="list-invoices.use-case.ts" path="/home/j-loz/proyectos/invoice_api/src/use-cases/list-invoices.use-case.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="22" coveredconditionals="22" methods="2" coveredmethods="2"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="28" count="15" type="stmt"/>
+        <line num="29" count="15" type="cond" truecount="4" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="37" count="14" type="stmt"/>
+        <line num="56" count="16" type="stmt"/>
+        <line num="58" count="14" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.validators">
+      <metrics statements="10" coveredstatements="10" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+      <file name="invoice.validator.ts" path="/home/j-loz/proyectos/invoice_api/src/validators/invoice.validator.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="13" count="30" type="stmt"/>
+        <line num="14" count="272" type="cond" truecount="4" falsecount="0"/>
+        <line num="15" count="14" type="stmt"/>
+        <line num="22" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="29" count="15" type="cond" truecount="4" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="36" count="14" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

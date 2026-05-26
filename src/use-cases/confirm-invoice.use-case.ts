@@ -1,20 +1,15 @@
 import type { InvoiceRepository } from '../repositories/invoice.repository';
+import type { Invoice } from '../types/invoice';
 
 export interface ConfirmInvoiceResultDTO {
   ok: true;
-  invoice: import('../types/invoice').Invoice;
+  invoice: Invoice;
 }
 
 export interface ConfirmInvoiceErrorDTO {
   ok: false;
   error: string;
   message: string;
-}
-
-const PREFIX = 'BT';
-
-function padNumber(n: number): string {
-  return String(n).padStart(4, '0');
 }
 
 export function createConfirmInvoiceUseCase(repository: InvoiceRepository) {
@@ -37,12 +32,11 @@ export function createConfirmInvoiceUseCase(repository: InvoiceRepository) {
       };
     }
 
-    const definitive = await repository.findAll({ status: 'definitivo', limit: 1 });
-    const nextNumber = definitive.pagination.total + 1;
+    const number = await repository.getNextInvoiceNumber();
 
     const updated = await repository.update(id, {
       status: 'definitivo',
-      number: `${PREFIX}${padNumber(nextNumber)}`,
+      number,
       updated_at: new Date().toISOString(),
     });
 
