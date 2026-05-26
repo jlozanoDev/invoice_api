@@ -1,0 +1,410 @@
+openapi: "3.0.3"
+info:
+  title: Invoice API
+  description: API para la gestión de facturas con numeración correlativa y ciclo de vida borrador/definitivo.
+  version: "1.0.0"
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Desarrollo
+
+paths:
+  /invoices:
+    get:
+      summary: Listar facturas
+      description: Obtiene un listado paginado de facturas con filtros opcionales.
+      tags:
+        - Invoices
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [borrador, definitivo]
+          description: Filtrar por estado
+        - name: client_cif
+          in: query
+          schema:
+            type: string
+          description: Filtrar por CIF del cliente (búsqueda exacta)
+        - name: client_name
+          in: query
+          schema:
+            type: string
+          description: Filtrar por razón social del cliente (búsqueda parcial, case-insensitive)
+        - name: issuer_nif
+          in: query
+          schema:
+            type: string
+          description: Filtrar por NIF del emisor
+        - name: number
+          in: query
+          schema:
+            type: string
+          description: Filtrar por número de factura
+        - name: description
+          in: query
+          schema:
+            type: string
+          description: Búsqueda parcial en el concepto (case-insensitive)
+        - name: date_from
+          in: query
+          schema:
+            type: string
+            format: date
+          description: Filtrar facturas con issue_date >=
+        - name: date_to
+          in: query
+          schema:
+            type: string
+            format: date
+          description: Filtrar facturas con issue_date <=
+        - name: min_base
+          in: query
+          schema:
+            type: number
+            format: decimal
+          description: Filtrar con base_amount >=
+        - name: max_base
+          in: query
+          schema:
+            type: number
+            format: decimal
+          description: Filtrar con base_amount <=
+        - name: min_total
+          in: query
+          schema:
+            type: number
+            format: decimal
+          description: Filtrar con total_amount >=
+        - name: max_total
+          in: query
+          schema:
+            type: number
+            format: decimal
+          description: Filtrar con total_amount <=
+        - name: sort_by
+          in: query
+          schema:
+            type: string
+            default: created_at
+          description: Campo por el que ordenar
+        - name: sort_order
+          in: query
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: desc
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+          description: Número de página
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+          description: Resultados por página
+      responses:
+        "200":
+          description: Listado de facturas
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Invoice"
+                  pagination:
+                    $ref: "#/components/schemas/Pagination"
+
+    post:
+      summary: Crear factura
+      description: Crea una nueva factura en estado borrador.
+      tags:
+        - Invoices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateInvoiceInput"
+      responses:
+        "201":
+          description: Factura creada
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invoice"
+        "400":
+          $ref: "#/components/responses/ValidationError"
+
+  /invoices/{id}:
+    get:
+      summary: Obtener factura
+      description: Obtiene una factura por su ID.
+      tags:
+        - Invoices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID de la factura
+      responses:
+        "200":
+          description: Factura encontrada
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invoice"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+    delete:
+      summary: Eliminar factura
+      description: Elimina una factura en estado borrador. No permite eliminar facturas definitivas.
+      tags:
+        - Invoices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID de la factura
+      responses:
+        "204":
+          description: Factura eliminada
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          description: No se puede eliminar una factura en estado definitivo
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /invoices/{id}/confirm:
+    patch:
+      summary: Confirmar factura
+      description: >
+        Pasa la factura de estado borrador a definitivo y le asigna el siguiente número correlativo
+        disponible con el prefijo configurado.
+      tags:
+        - Invoices
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: ID de la factura
+      responses:
+        "200":
+          description: Factura confirmada
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invoice"
+        "400":
+          description: La factura ya está en estado definitivo
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+components:
+  schemas:
+    Invoice:
+      type: object
+      required:
+        - id
+        - status
+        - issuer_name
+        - issuer_nif
+        - issuer_address
+        - client_name
+        - client_cif
+        - client_address
+        - issue_date
+        - operation_date
+        - description
+        - base_amount
+        - vat_rate
+        - vat_amount
+        - total_amount
+        - created_at
+        - updated_at
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Identificador único
+        number:
+          type: string
+          nullable: true
+          description: >
+            Número correlativo (ej. BT0001). Solo se asigna al confirmar la factura.
+            El prefijo se define en la configuración del sistema.
+        status:
+          type: string
+          enum: [borrador, definitivo]
+        issuer_name:
+          type: string
+          description: Razón social del emisor
+        issuer_nif:
+          type: string
+          description: NIF del emisor
+        issuer_address:
+          type: string
+          description: Dirección completa del emisor
+        client_name:
+          type: string
+          description: Razón social del cliente
+        client_cif:
+          type: string
+          description: CIF del cliente
+        client_address:
+          type: string
+          description: Dirección completa del cliente
+        issue_date:
+          type: string
+          format: date
+          description: Fecha de emisión
+        operation_date:
+          type: string
+          format: date
+          description: Fecha de la operación
+        description:
+          type: string
+          description: Concepto o descripción de la factura
+        base_amount:
+          type: number
+          format: decimal
+          description: Base imponible
+        vat_rate:
+          type: number
+          format: decimal
+          description: Tipo de IVA aplicado (ej. 21.00)
+        vat_amount:
+          type: number
+          format: decimal
+          description: Importe del IVA
+        total_amount:
+          type: number
+          format: decimal
+          description: Base + IVA (cálculo automático)
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de última modificación
+
+    CreateInvoiceInput:
+      type: object
+      required:
+        - issuer_name
+        - issuer_nif
+        - issuer_address
+        - client_name
+        - client_cif
+        - client_address
+        - issue_date
+        - operation_date
+        - description
+        - base_amount
+        - vat_rate
+        - vat_amount
+      properties:
+        issuer_name:
+          type: string
+        issuer_nif:
+          type: string
+        issuer_address:
+          type: string
+        client_name:
+          type: string
+        client_cif:
+          type: string
+        client_address:
+          type: string
+        issue_date:
+          type: string
+          format: date
+        operation_date:
+          type: string
+          format: date
+        description:
+          type: string
+        base_amount:
+          type: number
+          format: decimal
+        vat_rate:
+          type: number
+          format: decimal
+        vat_amount:
+          type: number
+          format: decimal
+      example:
+        issuer_name: Mi Empresa S.L.
+        issuer_nif: A12345678
+        issuer_address: Calle Mayor 1, 28001 Madrid
+        client_name: Cliente S.A.
+        client_cif: B12345678
+        client_address: Av. Principal 100, 08001 Barcelona
+        issue_date: "2026-05-25"
+        operation_date: "2026-05-25"
+        description: Servicios de consultoría - Mayo 2026
+        base_amount: 100.00
+        vat_rate: 21.00
+        vat_amount: 21.00
+
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        total_pages:
+          type: integer
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+
+  responses:
+    NotFound:
+      description: Recurso no encontrado
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
+    ValidationError:
+      description: Error de validación
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorResponse"
